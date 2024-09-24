@@ -1,3 +1,6 @@
 import math
-import sympy
+from sympy import Symbol
 
+class SymSolver:
+    def __init__(self):
+        self.L = Symbol("L")
