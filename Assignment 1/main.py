@@ -1,20 +1,18 @@
+
 import math
-from sympy import Symbol, pi, Function
+from sympy import Symbol
+from sympy.abc import x
+from SymSolver import SymSolver
 
-class SymSolver:
+cParams = {
+    'F': Symbol('F', real = True),
+    'g': Symbol('g', real = True),
+    'L': Symbol('L', positive = True),
+    'A': Symbol('A', positive = True),
+    'E': Symbol('E', positive = True),
+    'r': Symbol('g', positive = True),  
+}
 
-    def __init__(self, r):
-        self.x = Symbol('x')
-        self.L = Symbol('L', positive=True)
-        self.F = Symbol('F')
-        self.E = Symbol('E', positive=True)
-        self.A = Symbol('A', positive=True)
-        self.g = Symbol('g')
-        self.rho = pi / self.L**2
-        self.s = self.g * pi**4 / self.L**2
-        u = Function('u', real=True)
-        self.q = self.E * (self.rho * u )
-
-
-
-solver = SymSolver(2)
+SolverProb1 = SymSolver(cParams)
+solution = SolverProb1.numSolve().simplify().evalf()
+print(solution)
