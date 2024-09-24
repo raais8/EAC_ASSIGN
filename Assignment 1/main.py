@@ -1,5 +1,5 @@
 import math
-from sympy import *
+from sympy import Symbol, pi, Function
 
 class SymSolver:
 
