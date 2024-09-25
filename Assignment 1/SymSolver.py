@@ -2,7 +2,7 @@ import math
 from sympy import Symbol, pi, Function, diff, dsolve
 from sympy.abc import x
 
-class SymSolver:
+class ExactSolver:
 
     def __init__(self, cParams):
         self.L, self.A, self.E, self.F = cParams['L'], cParams['A'], cParams['E'], cParams['F']
@@ -24,4 +24,4 @@ class SymSolver:
     def numSolve(self):
         solution = self.buildAndSolveODE()
         numSolution = solution.subs({self.L: 1, self.g: 0.01})
-        return(numSolution)
+        return(numSolution.rhs)
